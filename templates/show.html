@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>基本資料</title>
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h3>   
+    {% for person in persons %}
+       <h2>第 {{forloop.counter}} 位員工</h2>
+       <ul>
+           <li>姓名：{{person.name}}</li>
+           <li>手機：{{person.phone}}</li>
+           <li>年齡：{{person.age}}</li>
+       </ul>
+    {% empty %}
+       沒有任何資料
+    {% endfor %}  
+    </h3>
+    <table style="width: 100%;">
+        {% for i in list1 %}
+            {% if forloop.counter0|divisibleby:"9" %}
+                <tr>
+            {% endif %}
+                    <td>{{i.0}}*{{i.1}}={{i.2}}</td>
+            {% if forloop.counter|divisibleby:"9" %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    
+
+</body>
+</html>

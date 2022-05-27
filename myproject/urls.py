@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from myapp.views import sayhello, hello2, hello4
+from myapp.views import sayhello, hello2, hello4,test_dict, dice, dice2, dice3, show
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sayhello),
     path('hello2/<str:username>', hello2),
     path('hello4/<str:username>', hello4),
+    path('test-dict/', test_dict),
+    path('dice/', dice),
+    path('dice2/', dice2),
+    path('dice3/', dice3),
+    path('show/', show),
 ]
+
+    
+    
