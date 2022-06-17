@@ -62,3 +62,8 @@ def listall(request):
     students = student.objects.all().order_by('id')
     print('student.objects.all()', type(students))
     return render(request,"listall.html",locals())
+
+def listdata(request):
+    students = student.objects.all().order_by('id')
+    print('student.objects.all()', type(students))
+    return render(request,"listdata.html",locals())
