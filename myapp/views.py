@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 import random
+from myapp.models import student
 
 def sayhello(request):
     return HttpResponse('sayhello....')
@@ -48,3 +49,16 @@ def show(request):
             k = i * j
             list1.append([i, j, k])
     return render(request,"show.html",locals())
+    
+def listone(request):
+    try:
+        unit = student.objects.get(cName='chris')
+        print('student.objects.get', type(unit))
+    except:
+        errormessage = "(讀取錯誤!"
+    return render(request,"listone.html",locals())
+    
+def listall(request):
+    students = student.objects.all().order_by('id')
+    print('student.objects.all()', type(students))
+    return render(request,"listall.html",locals())
